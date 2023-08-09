@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Product Filter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../scrollbar.css">
+</head>
+
+<body>
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo">MODEL</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <div class="nav__close">
+                    <ion-icon name="close-outline" class="nav__close-icon" id="nav-close"></ion-icon>
+                </div>
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="../index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="index.html" class="nav__link">Gallery</a></li>
+                    <li class="nav__item"><a href="../about/about.html" class="nav__link">About</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+
+        <ul>
+            <li class="list active" data-filter="all">All</li>
+            <li class="list" data-filter="woman">Woman</li>
+            <li class="list" data-filter="fold">Fold</li>
+            <li class="list" data-filter="man">Man</li>
+            <li class="list" data-filter="think">Think</li>
+            <li class="list" data-filter="headphone">Other</li>
+        </ul>
+        <div class="product">
+            <div class="itemBox woman"><img src="images/image.png"></div>
+            <div class="itemBox water"><img src="images/image1.png"></div>
+            <div class="itemBox man"><img src="images/image2.png"></div>
+            <div class="itemBox think"><img src="images/image3.png"></div>
+            <div class="itemBox fold"><img src="images/image4.png"></div>
+            <div class="itemBox man"><img src="images/image5.png"></div>
+            <div class="itemBox fold"><img src="images/image6.png"></div>
+            <div class="itemBox woman"><img src="images/image7.png"></div>
+            <div class="itemBox fold"><img src="images/image8.png"></div>
+            <div class="itemBox woman"><img src="images/image9.png"></div>
+            <div class="itemBox fold"><img src="images/image10.jpg"></div>
+            <div class="itemBox woman"><img src="images/image11.jpg"></div>
+            <div class="itemBox man"><img src="images/image12.jpg"></div>
+            <div class="itemBox woman"><img src="images/image13.jpg"></div>
+            <div class="itemBox woman"><img src="images/image14.jpg"></div>
+            <div class="itemBox woman"><img src="images/image15.jpg"></div>
+            <div class="itemBox fold"><img src="images/image16.jpg"></div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integerity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/c8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.list').click(function () {
+                const value = $(this).attr('data-filter');
+                if (value == 'all') {
+                    $('.itemBox').show('1000');
+                }
+                else {
+                    $('.itemBox').not('.' + value).hide('1000');
+                    $('.itemBox').filter('.' + value).show('1000');
+                }
+            })
+            // active select
+
+            $('.list').click(function () {
+                $(this).addClass('active').siblings().removeClass('active')
+            })
+
+
+        })
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js"
+        integrity="sha256-3mBEX8I0uMLF7+AUjJeTCelosuorzYpqwBMBPDTyQqY=" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+    <script>
+        const navMenu = document.getElementById('nav-menu')
+        const toggleMenu = document.getElementById('nav-toggle')
+        const closeMenu = document.getElementById('nav-close')
+
+        toggleMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('show')
+            navMenu.classList.remove('hidden')
+        })
+
+        closeMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden')
+            navMenu.classList.remove('show')
+        })
+    </script>
+</body>
+
+</html>
