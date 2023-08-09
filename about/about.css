@@ -35,6 +35,7 @@
     font-size: 85px;
     margin-bottom: 20px;
     text-transform: capitalize;
+    opacity: 0;
 }
 .text h5{
     color: black;
